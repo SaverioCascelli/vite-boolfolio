@@ -55,7 +55,7 @@ export default {
     </div>
 </template>
 <style scoped lang="scss">
-@use '../../scss/appVue.scss';
+@use '../style/general.scss';
 
 .container {
 

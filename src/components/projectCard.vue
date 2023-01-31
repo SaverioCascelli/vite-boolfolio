@@ -36,7 +36,7 @@ export default {
 
 
 <style lang="scss" scoped>
-@use '../../scss/appVue.scss';
+@use '../style/general.scss';
 
 .project-card {
     height: 200px;
