@@ -1,30 +1,10 @@
 <script>
-import projectCard from './components/projectCard.vue';
-import axios from 'axios';
+import Header from './partials/header.vue'
 
-
-export default{
-  components: { projectCard },
-  name:'App',
-  data(){
-    return{
-      url: 'http://127.0.0.1:8000/api/projects',
-      projects:[],
-   }
-  },
-  methods:{
-    getApi(){
-      axios.get(this.url)
-        .then(result =>{
-          this.projects = result.data.data;
-
-          console.log(this.projects);
-        })
-    }
-  },
-  mounted(){
-    this.getApi();
-  }
+export default {
+    components: {
+        Header,
+    },
 
 }
 
@@ -32,28 +12,20 @@ export default{
 </script>
 
 <template>
-  <main>
+    <header>
+        <Header />
 
-    <div class="project-container">
-      <projectCard
-      v-for="project in projects"
-      :key="project.id"
-      :name="project.name"
-      :text="project.summary"
-      />
-    </div>
+    </header>
+    <main>
 
-  </main>
+
+
+        <router-view></router-view>
+
+    </main>
 
 </template>
 
 <style scoped lang="scss">
-@use './style/general.scss';
-.project-container{
-  width: calc(100%);
-  margin: 25px;
-  display: flex;
-  flex-wrap: wrap;
-  }
 
 </style>
